@@ -39,5 +39,15 @@ func main() {
 		Left:  nil,
 		Right: &node1,
 	}
-	fmt.Print(inorderTraversal(&root))
+	inorderTraversal2(&root)
+}
+
+func inorderTraversal2(root *TreeNode) {
+	if root == nil {
+		return
+	}
+	fmt.Print(root.Val)
+	inorderTraversal2(root.Left)
+	inorderTraversal2(root.Left)
+
 }
