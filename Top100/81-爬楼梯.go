@@ -25,5 +25,22 @@ func main() {
 		fmt.Println("输入错误，请输入一个整数。")
 		return
 	}
-	fmt.Printf("爬到第%d阶有%d种方法", n, climbStairs(n))
+	fmt.Printf("爬到第%d阶有%d种方法", n, climbStairs2(n))
+}
+
+// 动态规划
+func climbStairs(n int) int {
+	if n == 1 {
+		return 1
+	}
+	if n == 2 {
+		return 2
+	}
+	dp := make([]int, n)
+	dp[0] = 1
+	dp[1] = 2
+	for i := 2; i < n; i++ {
+		dp[i] = dp[i-1] + dp[i-2]
+	}
+	return dp[n-1]
 }
