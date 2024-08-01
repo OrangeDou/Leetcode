@@ -1,4 +1,4 @@
-package array
+package main
 
 func moveZeroes(nums []int) {
 	fast, slow := 0, 0

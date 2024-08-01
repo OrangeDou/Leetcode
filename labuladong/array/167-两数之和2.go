@@ -1,4 +1,4 @@
-package array
+package main
 
 func twoSum(numbers []int, target int) []int {
 	if len(numbers) <= 1 {
