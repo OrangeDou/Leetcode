@@ -41,7 +41,7 @@ func minWindow(s string, t string) string {
 			}
 			if (right - left) == size {
 				return s
-			}
+			}	
 			d := rune(s[left]) // d 是将移出窗口的字符
 			left++
 			if _, ok := need[d]; ok { // 进行窗口内数据的一系列更新
