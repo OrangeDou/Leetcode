@@ -17,9 +17,9 @@ import (
 )
 
 func main() {
-	s := "cbaebabacd"
-	p := "abc"
-	fmt.Print(findAnagrams(s, p))
+	s := "baa"
+	p := "aa"
+	fmt.Print(findAnagrams2(s, p))
 }
 
 func findAnagrams(s string, p string) []int {
@@ -56,4 +56,44 @@ func hash(s []string) string {
 	}
 	return sb.String()
 
+}
+
+func findAnagrams2(s string, p string) []int {
+	win := make(map[rune]int, 0)
+	target := make(map[rune]int, 0)
+	tRune := []rune(p)
+	for _, c := range tRune {
+		target[c]++
+	}
+	result := make([]int, 0)
+
+	left, right := 0, 0
+	valid := 0
+	sRune := []rune(s)
+	for right < len(sRune) {
+		c := sRune[right]
+		right++
+		if _, ok := target[c]; ok {
+			win[c]++
+			if win[c] == target[c] {
+				valid++
+			}
+		}
+		for right-left >= len(target) {
+			if valid == len(target) {
+				result = append(result, left)
+			}
+			d := sRune[left]
+			left++
+			if _, ok := target[d]; ok {
+				if win[d] == target[d] {
+					valid--
+				}
+				win[d]--
+			}
+		}
+
+	}
+
+	return result
 }
