@@ -10,3 +10,5 @@ func (h *hp) Pop() any {
 	*h = a[:len(a)-1]
 	return v
 }
+
+// 实现一个大根堆
