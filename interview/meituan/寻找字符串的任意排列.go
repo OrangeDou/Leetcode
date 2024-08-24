@@ -3,8 +3,8 @@ package main
 import "fmt"
 
 func main() {
-	a := "aba"
-	b := "ngbabdf"
+	a := "abcdxabcde"
+	b := "abcdeabcdx"
 	fmt.Print(findString(a, b))
 }
 
@@ -18,15 +18,16 @@ func findString(s1, s2 string) bool {
 	}
 
 	left, right := 0, len(s1)
-	count := 0
+
 	for right <= len(s2) {
+		count := 0
 		win := make(map[rune]int, len(s1))
 		for i := left; i < right; i++ {
 			win[rune(s2[i])]++
 		}
 		for key, value := range win {
 			if target[key] == value {
-				count++
+				count += value
 			}
 		}
 		if count == len(s1) {
