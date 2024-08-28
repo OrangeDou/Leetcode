@@ -6,3 +6,7 @@
 */
 
 package main
+
+func main() {
+	slice := make([]int, 0)
+}
