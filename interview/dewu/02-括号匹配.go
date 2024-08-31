@@ -20,7 +20,7 @@ func main() {
 	var n int //（和)的个数
 	fmt.Scan(&n)
 	var char string
-	var prefix int //前缀长度
+	var curLength, maxLength int //当前前缀长度
 	fmt.Scan(&char)
 
 	qh := make([]string, n) //括号数组 ['( ',')' ,')' ,')']
@@ -31,18 +31,24 @@ func main() {
 	s := stack{}
 	// 计算
 	for i := 0; i < n; i++ {
+		curLength++
 		if qh[i] == "(" {
 			s.push(qh[i])
 		} else if qh[i] == ")" {
 			if s.isEmpty() {
-				continue
+				break
+			} else {
+				s.pop()
+				if s.isEmpty() {
+					maxLength += curLength
+					curLength = 0
+				}
 			}
-			s.pop()
-			prefix += 2
+
 		}
 
 	}
-	fmt.Print(prefix)
+	fmt.Print(maxLength)
 
 }
 
