@@ -4,6 +4,12 @@ import (
 	"fmt"
 )
 
+/*
+a*b (a>b)
+a*(b+1) = a*b + a
+(a+1)*b = a*b + b
+*/
+
 func main() {
 	var a, b, c, k int
 	fmt.Scan(&a, &b, &c, &k)
