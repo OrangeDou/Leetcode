@@ -25,5 +25,3 @@ func Newshardmap(numsShard int) *ShardMap {
 		numShard: numsShard,
 	}
 }
-
-//
